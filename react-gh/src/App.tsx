@@ -21,14 +21,14 @@ export const App: React.FunctionComponent = () => {
       <Text variant="xxLarge" styles={boldStyle}>
         Welcome to the Enterprise-Scale Landing Zone Generator
       </Text>
-      <Text variant="large">For a guide on how to customize this project, check out the Fluent UI documentation.</Text>
+      <Text variant="large">For a guide on how to customize this project, check out our repository and Fluent UI documentation.</Text>
       <Text variant="large" styles={boldStyle}>
         Essential links
       </Text>
       <Stack horizontal tokens={stackTokens} horizontalAlign="center">
         <Link href="https://developer.microsoft.com/en-us/fluentui#/get-started/web">Docs</Link>
         <Link href="https://stackoverflow.com/questions/tagged/office-ui-fabric">Stack Overflow</Link>
-        <Link href="https://github.com/microsoft/fluentui/">Github</Link>
+        <Link href="https://github.com/demirsenturk/Enterprise-Scale-Landing-Zone-Generator">Github</Link>
         <Link href="https://twitter.com/fluentui">Twitter</Link>
       </Stack>
       <Text variant="large" styles={boldStyle}>
