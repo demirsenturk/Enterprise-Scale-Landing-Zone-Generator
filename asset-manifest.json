@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Enterprise-Scale-Landing-Zone-Generator/static/css/main.abd64e84.css",
+    "main.js": "/Enterprise-Scale-Landing-Zone-Generator/static/js/main.f03a2bb2.js",
+    "static/js/787.3a4f9be3.chunk.js": "/Enterprise-Scale-Landing-Zone-Generator/static/js/787.3a4f9be3.chunk.js",
+    "static/media/logo.svg": "/Enterprise-Scale-Landing-Zone-Generator/static/media/logo.68bf6f884df54e44090c2bef804325bd.svg",
+    "index.html": "/Enterprise-Scale-Landing-Zone-Generator/index.html",
+    "main.abd64e84.css.map": "/Enterprise-Scale-Landing-Zone-Generator/static/css/main.abd64e84.css.map",
+    "main.f03a2bb2.js.map": "/Enterprise-Scale-Landing-Zone-Generator/static/js/main.f03a2bb2.js.map",
+    "787.3a4f9be3.chunk.js.map": "/Enterprise-Scale-Landing-Zone-Generator/static/js/787.3a4f9be3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abd64e84.css",
+    "static/js/main.f03a2bb2.js"
+  ]
+}
