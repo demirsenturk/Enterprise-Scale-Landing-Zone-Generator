@@ -17,7 +17,10 @@
     "typescript": "^4.7.4",
     "web-vitals": "^1.1.2"
   },
+  "homepage": "https://demirsenturk.github.io/Enterprise-Scale-Landing-Zone-Generator/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
