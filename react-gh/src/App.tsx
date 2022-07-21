@@ -52,7 +52,7 @@ export const App: React.FunctionComponent = () => {
         >
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={wingTip1} />
           <DocumentCardDetails>
-            <DocumentCardTitle title="Azure without hybrid connectivity" shouldTruncate />
+            <DocumentCardTitle title="Azure without hybrid connectivity test" shouldTruncate />
           </DocumentCardDetails>
         </DocumentCard>
       </div>
