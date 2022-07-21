@@ -14,6 +14,7 @@ import {
 // import { IIconProps } from '@fluentui/react/lib/Icon';
 import { ImageFit } from '@fluentui/react/lib/Image';
 
+
 const boldStyle: Partial<ITextStyles> = { root: { fontWeight: FontWeights.semibold } };
 const stackTokens: IStackTokens = { childrenGap: 15 };
 const stackStyles: Partial<IStackStyles> = {
@@ -39,7 +40,7 @@ export const App: React.FunctionComponent = () => {
       <div>
         <DocumentCard
           styles={cardStyles}
-          onClickHref="http://google.com"
+          onClickHref="https://github.com/demirsenturk/Enterprise-Scale-Landing-Zone-Generator/blob/main/react-gh/src/OnPremConnectivity.tsx"
         >
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={hybrid1} />
           <DocumentCardDetails>
