@@ -1,7 +1,18 @@
-// new 
+import { Link } from "react-router-dom";
 import * as React from 'react';
 import { Text } from '@fluentui/react/lib/Text';
 import { Stack } from '@fluentui/react/lib/Stack';
+
+const noHybrid = () => {
+  return ( 
+  <div>
+  <Link to="/">no Hybrid</Link>
+  <h2>About Page</h2> 
+  </div>
+  );
+ }
+ export default noHybrid;
+ // new 
 
 const tokens = {
   sectionStack: {

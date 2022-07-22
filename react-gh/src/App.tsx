@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Stack, Text, FontWeights, IStackTokens, IStackStyles, ITextStyles, Separator } from '@fluentui/react';
 import logo from './logo.svg';
 import hybrid1 from './global-transit.png';
@@ -13,7 +13,7 @@ import {
 } from '@fluentui/react/lib/DocumentCard';
 // import { IIconProps } from '@fluentui/react/lib/Icon';
 import { ImageFit } from '@fluentui/react/lib/Image';
-//import OnPremConnectivity from './OnPremConnectivity'
+//import OnPremisesConnectivity from './OnPremisesConnectivity'
 import { Link } from "react-router-dom";
 //import { DefaultButton } from '@fluentui/react/lib/Button';
 //import { useNavigate } from 'react-router-dom';
@@ -52,29 +52,30 @@ export const App: React.FunctionComponent = () => {
         What would you like to achieve?
       </Text>
       <div>
-        <Link to="/about">About</Link>
-        <h2>Github Pages</h2>
-        <h3>Deploying React to Github</h3>
-      </div>
-      <div>
         <DocumentCard
           styles={cardStyles}
-          onClickHref="http://bing.com"
+          //onClickHref="http://bing.com"
 
         //onClick= {navigateToOnPremConnect}
         >
+          <div>
+            <Link to="./OnPremisesConnectivity">On-premises Connectivity</Link>
+          </div>
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={hybrid1} />
           <DocumentCardDetails>
-            <DocumentCardTitle title="On-premises connectivity" shouldTruncate />
+            <DocumentCardTitle title=" " shouldTruncate />
           </DocumentCardDetails>
         </DocumentCard>
         <DocumentCard
           styles={cardStyles}
-          onClickHref="http://bing.com"
+          onClickHref=""
         >
+          <div>
+            <Link to="./noHybrid">Azure without hybrid connectivity</Link>
+          </div>
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={wingTip1} />
           <DocumentCardDetails>
-            <DocumentCardTitle title="Azure without hybrid connectivity test" shouldTruncate />
+            <DocumentCardTitle title=" " shouldTruncate />
           </DocumentCardDetails>
         </DocumentCard>
       </div>
