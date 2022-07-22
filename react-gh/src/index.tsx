@@ -4,6 +4,22 @@ import { App } from './App';
 import { mergeStyles } from '@fluentui/react';
 import reportWebVitals from './reportWebVitals';
 
+
+/*import {createRoot} from 'react-dom/';
+import {BrowserRouter as Router} from 'react-router-dom';
+
+const rootElement = document.getElementById('root')!;
+const root = createRoot(rootElement);
+
+// wrap App in Router
+root.render(
+  <Router>
+    <App />
+  </Router>
+);
+*/
+
+
 // Inject some global styles
 mergeStyles({
   ':global(body,html,#root)': {

@@ -13,6 +13,10 @@ import {
 } from '@fluentui/react/lib/DocumentCard';
 // import { IIconProps } from '@fluentui/react/lib/Icon';
 import { ImageFit } from '@fluentui/react/lib/Image';
+//import OnPremConnectivity from './OnPremConnectivity'
+//import { Link } from "react-router-dom";
+//import { DefaultButton } from '@fluentui/react/lib/Button';
+import { useNavigate } from 'react-router-dom'; 
 
 
 const boldStyle: Partial<ITextStyles> = { root: { fontWeight: FontWeights.semibold } };
@@ -31,16 +35,27 @@ const cardStyles: IDocumentCardStyles = {
 };
 
 export const App: React.FunctionComponent = () => {
+  
+  const navigate = useNavigate();
+
+  const navigateToOnPremConnect = () => {
+  navigate('/react-gh/src/OnPremConnectivity.tsx');
+};
+
   return (
     <Stack horizontalAlign="center" verticalAlign="center" verticalFill styles={stackStyles} tokens={stackTokens}>
       <img className="App-logo" src={logo} alt="logo" />
       <Text variant="xxLarge" styles={boldStyle}>
         Welcome to the Enterprise-Scale Landing Zone Generator
       </Text>
+      <Text variant="large" styles={boldStyle}>
+        What would you like to achieve?
+      </Text>
+
       <div>
         <DocumentCard
           styles={cardStyles}
-          onClickHref="https://github.com/demirsenturk/Enterprise-Scale-Landing-Zone-Generator/blob/main/react-gh/src/OnPremConnectivity.tsx"
+          onClick= {navigateToOnPremConnect}
         >
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={hybrid1} />
           <DocumentCardDetails>
