@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Text, Link, FontWeights, IStackTokens, IStackStyles, ITextStyles, Separator } from '@fluentui/react';
+import { Stack, Text, FontWeights, IStackTokens, IStackStyles, ITextStyles, Separator } from '@fluentui/react';
 import logo from './logo.svg';
 import hybrid1 from './global-transit.png';
 import wingTip1 from './es-without-networking.png';
@@ -14,9 +14,9 @@ import {
 // import { IIconProps } from '@fluentui/react/lib/Icon';
 import { ImageFit } from '@fluentui/react/lib/Image';
 //import OnPremConnectivity from './OnPremConnectivity'
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 //import { DefaultButton } from '@fluentui/react/lib/Button';
-import { useNavigate } from 'react-router-dom'; 
+//import { useNavigate } from 'react-router-dom';
 
 
 const boldStyle: Partial<ITextStyles> = { root: { fontWeight: FontWeights.semibold } };
@@ -35,12 +35,12 @@ const cardStyles: IDocumentCardStyles = {
 };
 
 export const App: React.FunctionComponent = () => {
-  
-  const navigate = useNavigate();
+
+  /*const navigate = useNavigate();
 
   const navigateToOnPremConnect = () => {
-  navigate('/react-gh/src/OnPremConnectivity.tsx');
-};
+    navigate('/react-gh/src/OnPremConnectivity.tsx');
+  };*/
 
   return (
     <Stack horizontalAlign="center" verticalAlign="center" verticalFill styles={stackStyles} tokens={stackTokens}>
@@ -51,11 +51,17 @@ export const App: React.FunctionComponent = () => {
       <Text variant="large" styles={boldStyle}>
         What would you like to achieve?
       </Text>
-
+      <div>
+        <Link to="/about">About</Link>
+        <h2>Github Pages</h2>
+        <h3>Deploying React to Github</h3>
+      </div>
       <div>
         <DocumentCard
           styles={cardStyles}
-          onClick= {navigateToOnPremConnect}
+          onClickHref="http://bing.com"
+
+        //onClick= {navigateToOnPremConnect}
         >
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={hybrid1} />
           <DocumentCardDetails>
@@ -76,20 +82,8 @@ export const App: React.FunctionComponent = () => {
       <Text variant="large" styles={boldStyle}>
         Essential links
       </Text>
-      <Stack horizontal tokens={stackTokens} horizontalAlign="center">
-        <Link href="https://developer.microsoft.com/en-us/fluentui#/get-started/web">Docs</Link>
-        <Link href="https://stackoverflow.com/questions/tagged/office-ui-fabric">Stack Overflow</Link>
-        <Link href="https://github.com/Azure/Enterprise-Scale">Enterprise-Scale Reference</Link>
-        <Link href="https://github.com/demirsenturk/Enterprise-Scale-Landing-Zone-Generator">Github</Link>
-      </Stack>
-      <Text variant="large" styles={boldStyle}>
-        Design system
-      </Text>
-      <Stack horizontal tokens={stackTokens} horizontalAlign="center">
-        <Link href="https://developer.microsoft.com/en-us/fluentui#/styles/web/icons">Icons</Link>
-        <Link href="https://developer.microsoft.com/en-us/fluentui#/styles/web">Styles</Link>
-        <Link href="https://aka.ms/themedesigner">Theme designer</Link>
-      </Stack>
+
     </Stack>
   );
 };
+
