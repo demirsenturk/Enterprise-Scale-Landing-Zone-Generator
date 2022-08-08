@@ -62,7 +62,7 @@ export const App: React.FunctionComponent = () => {
           onClickHref=""
         >
           <div>
-            <Link to="./noHybrid">Azure without hybrid connectivity</Link>
+            <Link to="./NoHybrid">Azure without hybrid connectivity</Link>
           </div>
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={wingTip1} />
           <DocumentCardDetails>
