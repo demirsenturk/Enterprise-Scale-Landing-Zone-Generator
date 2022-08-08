@@ -10,8 +10,7 @@ const labelStyles: Partial<IStyleSet<ILabelStyles>> = {
 const NoHybrid = () => {
   return ( 
   <div>
-  <Link to="/">NoHybrid</Link>
-  <h2>About Page</h2> 
+  <Link to="/">Home</Link>
     <Pivot aria-label="Basic Pivot Example">
       <PivotItem
         headerText="My Files"
