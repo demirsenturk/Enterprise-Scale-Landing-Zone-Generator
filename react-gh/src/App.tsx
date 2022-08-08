@@ -36,12 +36,6 @@ const cardStyles: IDocumentCardStyles = {
 
 export const App: React.FunctionComponent = () => {
 
-  /*const navigate = useNavigate();
-
-  const navigateToOnPremConnect = () => {
-    navigate('/react-gh/src/OnPremConnectivity.tsx');
-  };*/
-
   return (
     <Stack horizontalAlign="center" verticalAlign="center" verticalFill styles={stackStyles} tokens={stackTokens}>
       <img className="App-logo" src={logo} alt="logo" />
@@ -54,9 +48,6 @@ export const App: React.FunctionComponent = () => {
       <div>
         <DocumentCard
           styles={cardStyles}
-          //onClickHref="http://bing.com"
-
-        //onClick= {navigateToOnPremConnect}
         >
           <div>
             <Link to="./OnPremisesConnectivity">On-premises Connectivity</Link>
@@ -79,7 +70,7 @@ export const App: React.FunctionComponent = () => {
           </DocumentCardDetails>
         </DocumentCard>
       </div>
-      <Text variant="large">For a guide on how to customize this project, check out our repository and Fluent UI documentation.</Text>
+      <Text variant="large">Get started and build your Enterprise Scale Landing Zone!</Text>
       <Text variant="large" styles={boldStyle}>
         Essential links
       </Text>
