@@ -10,24 +10,27 @@ const OnPremisesConnectivity = () => {
   return ( 
   <div>
   <Link to="/">Home</Link>
-  <h2>About Page</h2> 
+  <h2>Strategic Migration Assessment and Readiness Tool</h2> 
     <Pivot aria-label="Basic Pivot Example">
       <PivotItem
-        headerText="My Files"
+        headerText="Business strategy"
         headerButtonProps={{
           'data-order': 1,
           'data-title': 'My Files Title',
         }}
       >
-        <Label styles={labelStyles}>Pivot #1</Label>
+        <Label styles={labelStyles}>
+          Has your company identified a compelling business reason for moving to the cloud?</Label>
       </PivotItem>
-      <PivotItem headerText="Recent">
+      <PivotItem headerText="Identity and access management">
         <Label styles={labelStyles}>Pivot #2</Label>
       </PivotItem>
       <PivotItem headerText="Shared with me">
         <Label styles={labelStyles}>Pivot #3</Label>
       </PivotItem>
+      
     </Pivot>
+   
   </div>
   );
  }
@@ -70,4 +73,9 @@ export const TextWrapExample = () => (
       </Text>
     </Stack>
   </Stack>
+  
 );
+
+function _onChange(ev: React.MouseEvent<HTMLElement>, checked?: boolean) {
+  console.log('toggle is ' + (checked ? 'checked' : 'not checked'));
+}
