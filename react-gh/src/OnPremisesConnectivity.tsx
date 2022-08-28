@@ -16,7 +16,8 @@ import {
   PrimaryButton,
   IButtonStyles,
   ChoiceGroup,
-   IChoiceGroupOption
+  IChoiceGroupOption,
+  TextField, MaskedTextField
 } from '@fluentui/react';
 
 const labelStyles: Partial<IStyleSet<ILabelStyles>> = {
@@ -227,7 +228,10 @@ const options24: IChoiceGroupOption[] = [
   { key: 'F', text: 'We create Azure Private DNS zones within a global connectivity subscription. The zones we create include zones required for accessing Azure PaaS services via a private endpoint (for example, privatelink.database.windows.net, or privatelink.blob.core.windows.net).' },
 
 ];
-
+const options25: IChoiceGroupOption[] = [
+  { key: 'A', text: 'Select existing' },
+  { key: 'B', text: 'Create new' }
+];
 // Optional styling to make the example look nicer
 const comboBoxStyles: Partial<IComboBoxStyles> = { root: { maxWidth: 300 } };
 const buttonStyles: Partial<IButtonStyles> = { root: { display: 'block', margin: '10px 0 20px' } };
@@ -248,20 +252,20 @@ const OnPremisesConnectivity = () => {
             'data-title': 'My Files Title',
           }}
         >
-           <ComboBox
-        componentRef={comboBoxRef}
-        defaultSelectedKey="C"
-        label="Directory"
-        options={options1}
-        styles={comboBoxStyles}
-      />
-        <ComboBox
-        componentRef={comboBoxRef}
-        defaultSelectedKey="C"
-        label="Region"
-        options={options2}
-        styles={comboBoxStyles}
-      />
+          <ComboBox
+            componentRef={comboBoxRef}
+            defaultSelectedKey="C"
+            label="Directory"
+            options={options1}
+            styles={comboBoxStyles}
+          />
+          <ComboBox
+            componentRef={comboBoxRef}
+            defaultSelectedKey="C"
+            label="Region"
+            options={options2}
+            styles={comboBoxStyles}
+          />
         </PivotItem>
         <PivotItem headerText="Azure Billing and Active Directory">
           <Label styles={labelStyles}>This critical design area focuses on the two highest levels of alignment across all of your Azure deployments; your Azure billing offer and the association of that offer with an Azure Active Directory (Azure AD) tenant.</Label>
@@ -280,16 +284,16 @@ const OnPremisesConnectivity = () => {
           <Toggle label="Assign recommended policies to govern identity and domain controllers" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
           <Label styles={labelStyles}>Identity subscription</Label>
           <ComboBox
-        componentRef={comboBoxRef}
-        defaultSelectedKey="C"
-        label="Subscription"
-        options={options12}
-        styles={comboBoxStyles}
-      />
-       <Toggle label="Prevent inbound RDP from internet" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
-       <Toggle label="Ensure subnets are associated with NSG" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
-       <Toggle label="Prevent usage of public IP" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
-       <Toggle label="Ensure Azure VMs (Windows and Linux) are enabled for Azure Backup" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
+            componentRef={comboBoxRef}
+            defaultSelectedKey="C"
+            label="Subscription"
+            options={options12}
+            styles={comboBoxStyles}
+          />
+          <Toggle label="Prevent inbound RDP from internet" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
+          <Toggle label="Ensure subnets are associated with NSG" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
+          <Toggle label="Prevent usage of public IP" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
+          <Toggle label="Ensure Azure VMs (Windows and Linux) are enabled for Azure Backup" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
 
         </PivotItem>
         <PivotItem headerText="Network topology and connectivity">
@@ -325,6 +329,13 @@ const OnPremisesConnectivity = () => {
         </PivotItem>
         <PivotItem headerText="Platform automation and DevOps">
           <Label styles={labelStyles}>Platform automation and DevOps evaluate opportunities to modernize your approach to environmental deployment with infrastructure as code options.</Label>
+          <Toggle label="Deploy integrated CICD pipeline?" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
+          <Toggle label=" Select CICD option" defaultChecked onText="Github Actions" offText="No" onChange={_onChange} />
+          <TextField label="GitHub organization or username" />
+          <TextField label="New GitHub repository name" />
+          <TextField label="GitHub personal access token" />
+          <Label styles={labelStyles}>Service Principal</Label>
+          <ChoiceGroup defaultSelectedKey="B" options={options25} label="Service Principal Type" required={true} />;
         </PivotItem>
       </Pivot>
 
