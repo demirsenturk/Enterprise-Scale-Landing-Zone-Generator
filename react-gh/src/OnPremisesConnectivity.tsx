@@ -17,7 +17,10 @@ import {
   IButtonStyles,
   ChoiceGroup,
   IChoiceGroupOption,
-  TextField, MaskedTextField
+  TextField,
+  MaskedTextField,
+  Slider,
+  IStackTokens
 } from '@fluentui/react';
 
 const labelStyles: Partial<IStyleSet<ILabelStyles>> = {
@@ -232,6 +235,103 @@ const options25: IChoiceGroupOption[] = [
   { key: 'A', text: 'Select existing' },
   { key: 'B', text: 'Create new' }
 ];
+const options26: IChoiceGroupOption[] = [
+  { key: 'A', text: 'We do not retain logs from Azure services.' },
+  { key: 'B', text: 'Log retention is ad-hoc and configured manually.' },
+  { key: 'C', text: 'Log retention is automated for some resources and manual for others.' },
+  { key: 'D', text: 'Log retention is enforced, and Azure logs are sent to an on-premises system.' },
+  { key: 'E', text: 'Log retention is enforced, and Azure logs are stored in Azure.' }
+];
+const options27: IChoiceGroupOption[] = [
+  { key: 'A', text: 'We have no mechanism in place to evaluate Azure resource configurations and ensure compliance.' },
+  { key: 'B', text: 'Azure resource configuration evaluation for compliance is a manual process.' },
+  { key: 'C', text: 'Some Azure resource configurations are automatically audited against documented standards.' },
+  { key: 'D', text: 'All Azure resource configurations are automatically audited against documented standards. Remediation activities are done manually.' },
+  { key: 'E', text: 'All Azure resource configurations are automatically audited against documented standards. Remediation activities are automated, and/or non-compliant resource deployments are blocked.' }
+];
+const options28: IChoiceGroupOption[] = [
+  { key: 'A', text: 'No usage of management groups, or use of the Tenant Root Management Group only.' },
+  { key: 'B', text: 'A single management group on top of the Tenant Root Management Group' },
+  { key: 'C', text: 'Management groups reflect organizational hierarchy and departments. The management groups contain associated subscriptions for each department.' },
+  { key: 'D', text: 'Management groups reflect applications/services and their various environments (e.g. prod, test, dev).' },
+  { key: 'E', text: 'Management groups reflect archetypes built using Azure Policy & RBAC assignments to define different workload requirements. An example of this is the Azure Landing Zone conceptual architecture management group hierarchy.' },
+  { key: 'F', text: 'Management Groups reflect archetypes and a "canary" testing hierarchy is in use.' },
+
+];
+const options29: IChoiceGroupOption[] = [
+  { key: 'A', text: 'No democratization. One subscription for all resources hosted in Azure.' },
+  { key: 'B', text: 'Two subscriptions, one for platform shared services and another for applications/workloads.' },
+  { key: 'C', text: 'Separate subscriptions for different environments (e.g. prod, test, dev). The subscriptions are shared by all applications/workloads and their teams.' },
+  { key: 'D', text: 'Separate subscriptions for each application/workload team. Each team can have multiple subscriptions depending on their particular application/workload requirements.' },
+  { key: 'E', text: 'Separate subscriptions for each application/workload team. Each team can have multiple subscriptions depending on their particular application/workload requirements. There are also separate subscriptions for central shared platform services.' }
+];
+const options30: IChoiceGroupOption[] = [
+  { key: 'A', text: 'Manually, by clicking "Add Subscription" in the Azure Portal or EA portal.' },
+  { key: 'B', text: 'Manually, by raising a ticket with our partner/CSP to create one.' },
+  { key: 'C', text: 'Manually, via an API call (ARM, REST, Bicep, Terraform, etc.), from a manual request (e-mail, ticket from ITSM tool).' },
+  { key: 'D', text: 'Automatically, via an API call (ARM, REST, Bicep, Terraform, etc.) triggered through a pipeline/integration tool.' }
+];
+const options31: IChoiceGroupOption[] = [
+  { key: 'A', text: 'We have not defined or documented security requirements for Azure.' },
+  { key: 'B', text: 'Some Azure resources are integrated with our security assessment and SIEM solutions.' },
+  { key: 'C', text: 'Some Azure subscriptions and resources are integrated with our security assessment and SIEM solutions. Secure resource configurations are defined, but not enforced.' },
+  { key: 'D', text: 'All Azure subscriptions and resources are manually integrated with our security assessment and SIEM solutions. Secure resource configurations are defined, but not enforced.' },
+  { key: 'E', text: 'All Azure subscriptions and resources are automatically integrated at time of deployment with our security assessment and SIEM solutions. Secure resource configurations are defined and enforced.' }
+
+];
+const options32: IChoiceGroupOption[] = [
+  { key: 'A', text: 'We have no defined process for evaluating Azure resource types before allowing them in our environment.' },
+  { key: 'B', text: 'We assess the security configurations of some Azure services in our environment.' },
+  { key: 'C', text: 'We assess the security configurations of most Azure services in our environment.' },
+  { key: 'D', text: 'We have a well-defined process for assessing Azure service security configurations as well as monitoring, alerting, and integrating services with existing systems. Secure resource configurations are defined but not enforced.' },
+  { key: 'E', text: 'We have a well-defined process for assessing Azure service security configurations as well as monitoring, alerting, and integrating services with existing systems. Secure resource configurations are defined and automatically enforced.' }
+
+];
+const options33: IChoiceGroupOption[] = [
+  { key: 'A', text: 'Manually, through the Azure Portal.' },
+  { key: 'B', text: 'Manually, through imperative tools like Azure PowerShell or Azure CLI.' },
+  { key: 'C', text: 'Manually, via declarative Infrastructure-as-Code tools like ARM Template, Bicep, Terraform, etc.' },
+  { key: 'D', text: 'Automatically, through a CI/CD pipeline, using imperative tools like Azure PowerShell or Azure CLI. Code is stored centrally in a Git repository.' },
+  { key: 'E', text: 'Automatically, through a CI/CD pipeline, using Infrastructure-as-Code tools like ARM Template, Bicep, Terraform, etc. Code is stored centrally in a Git repository.' }
+
+];
+const options34: IChoiceGroupOption[] = [
+  { key: 'A', text: 'Teams use a CI/CD pipeline (or multiple CI/CD pipelines) and Git repository to deploy to Azure.' },
+  { key: 'B', text: 'All teams are encouraged to deploy resources in whatever way fits their requirements for achieving their goals and SLAs, but we prefer they use declarative Infrastructure-as-Code tooling. However they deploy, teams work separately from each other in their own Git repository and CI/CD pipeline (or pipelines), which gives each team autonomy.' },
+];
+const options35: IChoiceGroupOption[] = [
+  { key: 'A', text: 'Audit, AuditIfNotExists, and/or setting "Enforcement Mode" on Policy Assignments to "Disabled" (which achieves same result as the Audit effect for Modify & DeployIfNotExists).' },
+  { key: 'B', text: 'Deny, Disabled' },
+  { key: 'C', text: 'Append, Modify, DeployIfNotExists' },
+];
+const options36: IChoiceGroupOption[] = [
+  { key: 'A', text: 'A  single central IT team deploys and manages everything in Azure, platform, and applications.' },
+  { key: 'B', text: 'A platform team (or teams) deploys and manages platform resources like Management Groups, Policy, RBAC, Hub Networking & Hybrid Connectivity (like VPN/ExpressRoute), Identity, etc. Platform functions might be split further between teams, such as networking resources being managed by a networking team and additional teams being in charge of identity and Azure platform/governance resources.' },
+  { key: 'C', text: 'We do not have team structures defined. Everyone has the same access and can deploy whatever they need, wherever they need.' }
+];
+const options37: IChoiceGroupOption[] = [
+  { key: 'A', text: 'We do not track costs for Azure.' },
+  { key: 'B', text: 'We track costs at the subscription level.' },
+  { key: 'C', text: 'We track costs for some individual workloads.' },
+  { key: 'D', text: 'We use a cost management tool to track costs for all workloads.' },
+  { key: 'E', text: 'Workload owners use a cost management tool to track their resource costs, and they are responsible for optimizing their spending.' }
+
+];
+const options38: IChoiceGroupOption[] = [
+  { key: 'A', text: 'We do not tag Azure resources with metadata.' },
+  { key: 'B', text: 'Azure resource tagging is ad-hoc and manual.' },
+  { key: 'C', text: 'Some Azure resources must have a defined set of tags and are audited for compliance.' },
+  { key: 'D', text: 'All azure resources must have a defined set of tags and are audited for compliance.' },
+  { key: 'E', text: 'All Azure resources must have a defined set of tags, and we enforce compliance via automation and/or policy.' }
+
+];
+const options39: IChoiceGroupOption[] = [
+  { key: 'A', text: 'We do not actively review resource utilization for cost optimization opportunities.' },
+  { key: 'B', text: 'Some teams review Azure Advisor for recommendations when workload costs exceed expectations.' },
+  { key: 'C', text: 'Some teams proactively review Azure Advisor (or a similar tool) recommendations for cost optimization opportunities.' },
+  { key: 'D', text: 'Teams proactively review Azure Advisor (or similar tool) recommendations for cost optimization opportunities.' },
+  { key: 'E', text: 'Teams proactively review Azure Advisor (or similar tool) recommendations for cost optimization opportunities and also leverage Reserved Instances.' }
+];
 // Optional styling to make the example look nicer
 const comboBoxStyles: Partial<IComboBoxStyles> = { root: { maxWidth: 300 } };
 const buttonStyles: Partial<IButtonStyles> = { root: { display: 'block', margin: '10px 0 20px' } };
@@ -240,6 +340,9 @@ const buttonStyles: Partial<IButtonStyles> = { root: { display: 'block', margin:
 const OnPremisesConnectivity = () => {
   const comboBoxRef = React.useRef<IComboBox>(null);
   const onOpenClick = React.useCallback(() => comboBoxRef.current?.focus(true), []);
+  const stackTokens: IStackTokens = { childrenGap: 20 };
+  const sliderAriaValueText = (value: number) => `${value} percent`;
+  const sliderValueFormat = (value: number) => `${value}%`;
   return (
     <div>
       <Link to="/">Home</Link>
@@ -316,19 +419,78 @@ const OnPremisesConnectivity = () => {
         </PivotItem>
         <PivotItem headerText="Resource organization">
           <Label styles={labelStyles}>The critical resource organization design area establishes consistent patterns for organizing resources deployed to the cloud.</Label>
+          <ChoiceGroup defaultSelectedKey="B" options={options28} label="Which option best describes your current usage of Management Groups?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options29} label="Which of these options best describes your current usage of Subscriptions and how you democratize their usage?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options30} label="How do you currently create/provision subscriptions within your environment?" required={true} />;
+
+          <TextField label="Management Group prefix" />
+          <Toggle label="Select dedicated subscriptions or single subscription for platform resources" defaultChecked onText="Dedicated(recommended)" offText="Single" onChange={_onChange} />
+          <Label styles={labelStyles}>Telemetry Tracking Using Customer Usage Attribution (PID).</Label>
+          <Toggle label=" Customer Usage Selection Options" defaultChecked onText="Enabled" offText="Disabled" onChange={_onChange} />
+
         </PivotItem>
         <PivotItem headerText="Governance">
           <Label styles={labelStyles}>Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails.</Label>
+          <ChoiceGroup defaultSelectedKey="B" options={options37} label=" How do you track costs for Azure resources?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options38} label=" How do you use Azure resource tagging within your environment?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options39} label=" How do you ensure you're optimizing your spending on Azure services?" required={true} />;
+
+         
         </PivotItem>
         <PivotItem headerText="Management">
           <Label styles={labelStyles}>This design area establishes a foundation for operations management across your Azure, hybrid, or multicloud environments.</Label>
-          <Toggle label="Has your company identified a compelling business reason for moving to the cloud?" defaultChecked onText="On" offText="Off" onChange={_onChange} />
+          <Label styles={labelStyles}>Azure Landing Zones will create the management group hierarchy under the Tenant Root Group with the prefix provided at this step.</Label>
+          <ChoiceGroup defaultSelectedKey="B" options={options26} label="How do you retain logs for insights and analytics?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options27} label="How do you ensure Azure resource configurations are compliant with organizational and regulatory standards?" required={true} />;
+          <Toggle label=" Deploy Log Analytics workspace and enable monitoring for your platform and resources" defaultChecked onText="Enabled" offText="Disabled" onChange={_onChange} />
+          <Slider label="Log Analytics Data Retention in days" min={0} max={30} step={1} defaultValue={20} showValue snapToStep />
+          <Label styles={labelStyles}>Management Subscription</Label>
+          <ComboBox
+            componentRef={comboBoxRef}
+            defaultSelectedKey="C"
+            label="Subscription"
+            options={options12}
+            styles={comboBoxStyles}
+          />
+          <Label styles={labelStyles}>Select which Azure Monitor solutions you will enable for your Log Analytics workspace
+          </Label>
+          <Toggle label="Deploy Agent Health solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy Change Tracking solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy Update Management solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy Activity Log solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy VM Insights solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy Service Map solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy SQL Assessment solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy SQL Vulnerability Assessment solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy SQL Advanced Threat Protection solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
         </PivotItem>
         <PivotItem headerText="Security">
           <Label styles={labelStyles}>This design area creates a foundation for security across your Azure, hybrid, and multi-cloud environments.</Label>
+          <ChoiceGroup defaultSelectedKey="B" options={options31} label="How do you meet your security requirements in Azure?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options32} label="How do you determine whether to allow Azure services in your environment or not?" required={true} />;
+          <Label styles={labelStyles}>Select which Microsoft Defender for Cloud solutions you will enable.</Label>
+          <Toggle label="Deploy Microsoft Defender for Cloud and enable security monitoring for your platform and resources" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <TextField label="Microsoft Defender for Cloud Email Contact" />
+          <Toggle label="Enable Microsoft Defender for Cloud for servers" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for open-source relational databases" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for AppServices" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for Storage" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for Azure SQL Database" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for SQL servers on machines" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for Key Vault" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for Azure Resource Manager" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for DNS" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for Containers (Kubernetes and Container Registries)" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Enable Microsoft Defender for Cloud for Key Vault" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
+          <Toggle label="Deploy Microsoft Sentinel" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
         </PivotItem>
         <PivotItem headerText="Platform automation and DevOps">
           <Label styles={labelStyles}>Platform automation and DevOps evaluate opportunities to modernize your approach to environmental deployment with infrastructure as code options.</Label>
+          <ChoiceGroup defaultSelectedKey="B" options={options33} label="How do you manage and deploy changes to your Azure Landing Zone environment(s)?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options34} label="How do different teams work together and deploy and manage their Azure resource deployments?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options35} label="Which Azure Policy effect(s) do you use in your Azure Landing Zones environment to control and audit subscriptions and their resources?" required={true} />;
+          <ChoiceGroup defaultSelectedKey="B" options={options36} label="How do your structure your teams internally, and how do they interact to deploy and manage Azure?" required={true} />;
+
           <Toggle label="Deploy integrated CICD pipeline?" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
           <Toggle label=" Select CICD option" defaultChecked onText="Github Actions" offText="No" onChange={_onChange} />
           <TextField label="GitHub organization or username" />
