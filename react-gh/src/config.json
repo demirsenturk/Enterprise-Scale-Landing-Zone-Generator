@@ -1,0 +1,32 @@
+{
+    "tabLabels": {
+        "deploy": "Deploy",
+        "net": "Networking Details",
+        "app": "Sample Apps"
+    },
+    "defaults": {
+        "deploy": {
+            "kubernetesVersion": "1.22.11",
+            "location": "WestEurope",
+            "apiips": "",
+            "demoapp": false,
+            "disablePreviews": false,
+            "acrPushRole": true,
+            "kvCertSecretRole": true,
+            "keyVaultIPAllowlist": false,
+            "clusterAdminRole": true,
+            "clusterIPWhitelist" : true,
+            "templateVersions": [{
+                "key": "local",
+                "text": "local"
+            }],
+            "selectedTemplate": "local",
+            "githubrepo": "",
+            "githubrepobranch": "main",
+            "deployItemKey": "deployArmCli"
+        },
+        "app": {
+            "javatls": false
+        }
+    }
+}
