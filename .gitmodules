@@ -1,0 +1,3 @@
+[submodule "react-gh/react-gh/bicep/ALZ-Bicep"]
+	path = react-gh/react-gh/bicep/ALZ-Bicep
+	url = https://github.com/Azure/ALZ-Bicep.git
