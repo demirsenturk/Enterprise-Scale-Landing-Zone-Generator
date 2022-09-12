@@ -412,31 +412,27 @@ const OnPremisesConnectivity = () => {
           <ChoiceGroup defaultSelectedKey="B" options={options22} label="The following statements are true about our requirements and strategy of how we implement NSG to protect traffic across subnets, as well as east-west traffic across the platform." required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options23} label="The following statements are true about our requirements and strategy for Traffic Inspection:" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options24} label="The following statements about our central DNS name resolution implementation are true:" required={true} />;
-
-
           <ChoiceGroup defaultSelectedKey="B" options={options13} label="Deploy networking topology" required={true} />;
-
         </PivotItem>
+
         <PivotItem headerText="Resource organization">
           <Label styles={labelStyles}>The critical resource organization design area establishes consistent patterns for organizing resources deployed to the cloud.</Label>
           <ChoiceGroup defaultSelectedKey="B" options={options28} label="Which option best describes your current usage of Management Groups?" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options29} label="Which of these options best describes your current usage of Subscriptions and how you democratize their usage?" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options30} label="How do you currently create/provision subscriptions within your environment?" required={true} />;
-
           <TextField label="Management Group prefix" />
           <Toggle label="Select dedicated subscriptions or single subscription for platform resources" defaultChecked onText="Dedicated(recommended)" offText="Single" onChange={_onChange} />
           <Label styles={labelStyles}>Telemetry Tracking Using Customer Usage Attribution (PID).</Label>
           <Toggle label=" Customer Usage Selection Options" defaultChecked onText="Enabled" offText="Disabled" onChange={_onChange} />
-
         </PivotItem>
+
         <PivotItem headerText="Governance">
           <Label styles={labelStyles}>Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails.</Label>
           <ChoiceGroup defaultSelectedKey="B" options={options37} label=" How do you track costs for Azure resources?" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options38} label=" How do you use Azure resource tagging within your environment?" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options39} label=" How do you ensure you're optimizing your spending on Azure services?" required={true} />;
-
-         
         </PivotItem>
+
         <PivotItem headerText="Management">
           <Label styles={labelStyles}>This design area establishes a foundation for operations management across your Azure, hybrid, or multicloud environments.</Label>
           <Label styles={labelStyles}>Azure Landing Zones will create the management group hierarchy under the Tenant Root Group with the prefix provided at this step.</Label>
@@ -464,6 +460,7 @@ const OnPremisesConnectivity = () => {
           <Toggle label="Deploy SQL Vulnerability Assessment solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
           <Toggle label="Deploy SQL Advanced Threat Protection solution" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
         </PivotItem>
+
         <PivotItem headerText="Security">
           <Label styles={labelStyles}>This design area creates a foundation for security across your Azure, hybrid, and multi-cloud environments.</Label>
           <ChoiceGroup defaultSelectedKey="B" options={options31} label="How do you meet your security requirements in Azure?" required={true} />;
@@ -484,13 +481,13 @@ const OnPremisesConnectivity = () => {
           <Toggle label="Enable Microsoft Defender for Cloud for Key Vault" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
           <Toggle label="Deploy Microsoft Sentinel" defaultChecked onText="Yes(recommended)" offText="No" onChange={_onChange} />
         </PivotItem>
+
         <PivotItem headerText="Platform automation and DevOps">
           <Label styles={labelStyles}>Platform automation and DevOps evaluate opportunities to modernize your approach to environmental deployment with infrastructure as code options.</Label>
           <ChoiceGroup defaultSelectedKey="B" options={options33} label="How do you manage and deploy changes to your Azure Landing Zone environment(s)?" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options34} label="How do different teams work together and deploy and manage their Azure resource deployments?" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options35} label="Which Azure Policy effect(s) do you use in your Azure Landing Zones environment to control and audit subscriptions and their resources?" required={true} />;
           <ChoiceGroup defaultSelectedKey="B" options={options36} label="How do your structure your teams internally, and how do they interact to deploy and manage Azure?" required={true} />;
-
           <Toggle label="Deploy integrated CICD pipeline?" defaultChecked onText="Yes" offText="No" onChange={_onChange} />
           <Toggle label=" Select CICD option" defaultChecked onText="Github Actions" offText="No" onChange={_onChange} />
           <TextField label="GitHub organization or username" />
