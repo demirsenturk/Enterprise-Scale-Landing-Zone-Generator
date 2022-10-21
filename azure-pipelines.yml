@@ -18,12 +18,12 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '.\react-gh\'
+    workingDir: 'react-gh'
     customCommand: 'npm install'
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '.\react-gh\'
+    workingDir: 'react-gh'
     customCommand: 'npm run build'
 
 - script: 
