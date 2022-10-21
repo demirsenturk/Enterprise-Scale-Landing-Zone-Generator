@@ -15,13 +15,15 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: Npm@1
+- task: CopyFiles@2
   inputs:
-    command: 'custom'
-    workingDir: 'react-gh'
-    customCommand: 'npm run build'
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'package.json' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy package.json'   
 
 - script: 
-    
-    #npm run build
+  workingDirectory: react-gh
+    npm install
+    npm run build
   displayName: 'npm install and build'
