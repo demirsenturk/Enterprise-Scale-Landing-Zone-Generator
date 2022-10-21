@@ -23,7 +23,8 @@ steps:
   displayName: 'Copy package.json'   
 
 - script: 
-  workingDirectory: react-gh
+ # workingDirectory: react-gh
+    echo  '$(System.DefaultWorkingDirectory)'
     npm install
     npm run build
   displayName: 'npm install and build'
