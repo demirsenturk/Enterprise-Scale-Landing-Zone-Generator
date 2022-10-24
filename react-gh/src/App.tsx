@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Stack, Text, FontWeights, IStackTokens, IStackStyles, ITextStyles, Separator } from '@fluentui/react';
-import logo from './logo.svg';
-import hybrid1 from './global-transit.png';
-import wingTip1 from './es-without-networking.png';
-import './App.css';
+// React Imports
+import React from 'react';
+import { Stack, Text, FontWeights, IStackTokens, IStackStyles, ITextStyles } from '@fluentui/react';
+import { Link as ReactLink } from '@fluentui/react';
+import { ImageFit } from '@fluentui/react/lib/Image';
 import {
   DocumentCard,
   DocumentCardTitle,
@@ -11,13 +10,12 @@ import {
   DocumentCardImage,
   IDocumentCardStyles,
 } from '@fluentui/react/lib/DocumentCard';
-// import { IIconProps } from '@fluentui/react/lib/Icon';
-import { ImageFit } from '@fluentui/react/lib/Image';
-//import OnPremisesConnectivity from './OnPremisesConnectivity'
 import { Link } from "react-router-dom";
-//import { DefaultButton } from '@fluentui/react/lib/Button';
-//import { useNavigate } from 'react-router-dom';
-
+// Media Imports
+import logo from './logo.svg';
+import hybrid1 from './global-transit.png';
+import wingTip1 from './es-without-networking.png';
+import './App.css';
 
 const boldStyle: Partial<ITextStyles> = { root: { fontWeight: FontWeights.semibold } };
 const stackTokens: IStackTokens = { childrenGap: 15 };
@@ -50,7 +48,7 @@ export const App: React.FunctionComponent = () => {
           styles={cardStyles}
         >
           <div>
-            <Link to="./OnPremisesConnectivity">On-premises Connectivity</Link>
+            <Link style={{textDecoration: 'none'}} to="./OnPremisesConnectivity">On-premises Connectivity</Link>
           </div>
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={hybrid1} />
           <DocumentCardDetails>
@@ -62,7 +60,7 @@ export const App: React.FunctionComponent = () => {
           onClickHref=""
         >
           <div>
-            <Link to="./NoHybrid">Azure without hybrid connectivity</Link>
+            <Link style={{textDecoration: 'none'}} to="./NoHybrid">Azure without hybrid connectivity</Link>
           </div>
           <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={wingTip1} />
           <DocumentCardDetails>
@@ -74,7 +72,19 @@ export const App: React.FunctionComponent = () => {
       <Text variant="large" styles={boldStyle}>
         Essential links
       </Text>
-
+      <Stack horizontal tokens={stackTokens} horizontalAlign="center">
+        <ReactLink href="https://github.com/demirsenturk/Enterprise-Scale-Landing-Zone-Generator">Project Github</ReactLink>
+        <ReactLink href="https://github.com/Azure/Enterprise-Scale">Azure Enterpise-Scale Reference</ReactLink>
+        <ReactLink href="https://developer.microsoft.com/en-us/fluentui#/get-started/web">Fluent UI Docs</ReactLink>
+      </Stack>
+      <Text variant="large" styles={boldStyle}>
+        Design system
+      </Text>
+      <Stack horizontal tokens={stackTokens} horizontalAlign="center">
+        <ReactLink href="https://developer.microsoft.com/en-us/fluentui#/styles/web/icons">Icons</ReactLink>
+        <ReactLink href="https://developer.microsoft.com/en-us/fluentui#/styles/web">Styles</ReactLink>
+        <ReactLink href="https://aka.ms/themedesigner">Theme designer</ReactLink>
+      </Stack>
     </Stack>
   );
 };
