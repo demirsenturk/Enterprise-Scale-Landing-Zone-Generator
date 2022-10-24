@@ -40,6 +40,11 @@ export const App: React.FunctionComponent = () => {
       <Text variant="xxLarge" styles={boldStyle}>
         Welcome to the Enterprise-Scale Landing Zone Generator
       </Text>
+      <Text variant="large">Get started and build your Enterprise Scale Landing Zone!</Text>
+      <Text variant="large" styles={boldStyle}>
+        About your organization
+      </Text>
+
       <Text variant="large" styles={boldStyle}>
         What would you like to achieve?
       </Text>
@@ -88,4 +93,6 @@ export const App: React.FunctionComponent = () => {
     </Stack>
   );
 };
+
+
 
