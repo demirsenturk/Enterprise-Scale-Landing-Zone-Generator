@@ -62,9 +62,7 @@ const NoHybrid = () => {
           </Stack>
         </Stack.Item>
       </Stack>
-      
-      <CodeBlock  lang="github actions"  deploycmd={deploycmd} />
-
+      {/* <CodeBlock  deploycmd={deploycmd} testId={'deploy-test-gh'} lang="bash" filename={undefined} error={undefined}/> */}
       <Separator styles={{ root: { marginTop: '30px !important' } }}><div style={{ display: "flex", alignItems: 'center', }}><b style={{ marginRight: '10px' }}>Deploy Cluster</b><Image src="./bicep.png" alt="Built with bicep" /> <p style={{ marginLeft: '10px' }}>powered by Bicep</p></div> 
       </Separator>
 
@@ -85,11 +83,3 @@ const options: IDropdownOption[] = [
   { key: 'temp2', text: '1.1' },
   { key: 'temp3', text: '1.2' },
 ];
-
-// const params2file = p => Object.keys(p).filter(p => p !== 'adminPrincipalId' &&
-// p !== 'acrPushRolePrincipalId' &&
-// p !== 'keyVaultOfficerRolePrincipalId').reduce((a, c) => { return { ...a, parameters: { ...a.parameters, [c]: { value: p[c] } } } }, {
-// "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-// "contentVersion": "1.0.0.0",
-// "parameters": {}
-// })
