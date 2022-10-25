@@ -16,7 +16,7 @@ steps:
   displayName: 'Build'
 
 - script: |
-    cd .\react-gh
+    cd react-gh
     git config --local user.name "t-dsenturk"
     git config --local user.email "t-dsenturk@microsoft.com"
     git add .
