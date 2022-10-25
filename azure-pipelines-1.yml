@@ -10,17 +10,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
 - script: |
-    npm install
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'Build'
 
 - script: |
+    cd .\react-gh
     git config --local user.name "t-dsenturk"
     git config --local user.email "t-dsenturk@microsoft.com"
     git add .
