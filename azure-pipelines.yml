@@ -1,0 +1,22 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+trigger:
+- source
+
+steps:
+- checkout: self
+  persistCredentials: true
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    git config user.email "t-dsenturk@microsoft.com" 
+    git config user.name "t-dsenturk"
+    npm install
+    npm run deploy -- -r https://$(github_pat)@github.com/demirsenturk/Enterprise-Scale-Landing-Zone-Generator.git
+  displayName: 'npm install and build'
+  

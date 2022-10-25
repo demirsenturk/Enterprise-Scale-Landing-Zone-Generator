@@ -1,0 +1,63 @@
+import * as React from 'react';
+import {
+  DocumentCard,
+  DocumentCardActivity,
+  DocumentCardTitle,
+  DocumentCardDetails,
+  DocumentCardImage,
+  IDocumentCardStyles,
+  IDocumentCardActivityPerson,
+} from '@fluentui/react/lib/DocumentCard';
+import { IIconProps } from '@fluentui/react/lib/Icon';
+import { ImageFit } from '@fluentui/react/lib/Image';
+
+const people: IDocumentCardActivityPerson[] = [
+  { name: 'Annie Lindqvist', profileImageSrc: '', initials: 'AL' },
+  { name: 'Roko Kolar', profileImageSrc: '', initials: 'RK' },
+  { name: 'Aaron Reid', profileImageSrc: '', initials: 'AR' },
+  { name: 'Christian Bergqvist', profileImageSrc: '', initials: 'CB' },
+];
+
+const oneNoteIconProps: IIconProps = {
+  iconName: 'OneNoteLogo',
+  styles: { root: { color: '#813a7c', fontSize: '120px', width: '120px', height: '120px' } },
+};
+
+export const DocumentCardImageExample: React.FunctionComponent = () => {
+  const cardStyles: IDocumentCardStyles = {
+    root: { display: 'inline-block', marginRight: 20, marginBottom: 20, width: 320 },
+  };
+
+  return (
+    <div>
+      <DocumentCard
+        aria-label={
+          'Document Card with image. How to make a good design. ' +
+          'Last modified by Annie Lindqvist and 2 others in March 13, 2018.'
+        }
+        styles={cardStyles}
+        onClickHref="http://bing.com"
+      >
+        <DocumentCardImage height={150} imageFit={ImageFit.cover} iconProps={oneNoteIconProps} />
+        <DocumentCardDetails>
+          <DocumentCardTitle title="On-premises connectivity" shouldTruncate />
+        </DocumentCardDetails>
+        <DocumentCardActivity activity="Modified March 13, 2018" people={people.slice(0, 3)} />
+      </DocumentCard>
+      <DocumentCard
+        aria-label={
+          'Document Card with icon. How to make a good design. ' +
+          'Last modified by Christian Bergqvist in January 1, 2019.'
+        }
+        styles={cardStyles}
+        onClickHref="http://bing.com"
+      >
+        <DocumentCardImage height={150} imageFit={ImageFit.cover} iconProps={oneNoteIconProps} />
+        <DocumentCardDetails>
+          <DocumentCardTitle title="Azure without hybrid connectivity" shouldTruncate />
+        </DocumentCardDetails>
+        <DocumentCardActivity activity="Modified January 1, 2019" people={[people[3]]} />
+      </DocumentCard>
+    </div>
+  );
+};
